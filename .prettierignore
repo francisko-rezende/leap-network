@@ -1,0 +1,9 @@
+build
+coverage
+
+# Outras pastas que podem entrar
+.next/**
+public/**
+out/**
+node_modules/**
+.git/**
