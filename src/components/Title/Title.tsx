@@ -17,8 +17,12 @@ export type TitleProps = React.HTMLAttributes<HTMLHeadingElement> &
     tag: "h1" | "h2" | "h3";
   };
 
-export const Title = ({ intent, tag, ...props }: TitleProps) => {
+export const Title = ({ intent, tag, children, ...props }: TitleProps) => {
   const Tag = tag;
 
-  return <Tag className={titleStyles({ intent })} {...props} />;
+  return (
+    <Tag className={titleStyles({ intent })} {...props}>
+      {children}
+    </Tag>
+  );
 };
