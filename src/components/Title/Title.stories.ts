@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Title } from "./Title";
 
 const meta: Meta<typeof Title> = {
-  title: "CodeLeap Network/Title",
+  title: "CodeLeap Network/Atoms/Title",
   component: Title,
   tags: ["autodocs"],
 };
