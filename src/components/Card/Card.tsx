@@ -12,6 +12,7 @@ const cardStyles = cva(
     "border-transparent",
     "grid",
     "gap-6",
+    "overflow-hidden",
   ],
   {
     variants: {
