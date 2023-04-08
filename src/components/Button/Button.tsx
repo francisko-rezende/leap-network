@@ -12,6 +12,8 @@ const buttonStyles = cva(
     "text-white",
     "border",
     "transition-colors",
+    "disabled:bg-neutral-400",
+    "disabled:cursor-not-allowed",
   ],
   {
     variants: {
@@ -26,7 +28,7 @@ const buttonStyles = cva(
           "text-black",
           "border-leap-gray-400",
           "hover:bg-gray-100",
-          "active:bg-gray-400",
+          "active:bg-gray-200",
         ],
         delete: [
           "bg-leap-red-500",
