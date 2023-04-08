@@ -9,6 +9,9 @@ const meta: Meta<typeof Button> = {
     upperCase: {
       control: "boolean",
     },
+    disabled: {
+      control: "boolean",
+    },
   },
 };
 
