@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Header } from "./Header";
 
 const meta: Meta<typeof Header> = {
-  title: "CodeLeap Network/Header",
+  title: "CodeLeap Network/Molecules/Header",
   component: Header,
   tags: ["autodocs"],
 };

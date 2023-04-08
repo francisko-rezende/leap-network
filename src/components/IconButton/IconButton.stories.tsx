@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { IconButton } from "./IconButton";
 
 const meta: Meta<typeof IconButton> = {
-  title: "CodeLeap Network/IconButton",
+  title: "CodeLeap Network/Atoms/IconButton",
   component: IconButton,
   tags: ["autodocs"],
 };
