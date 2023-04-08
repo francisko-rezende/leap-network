@@ -1,11 +1,10 @@
 import TextareaAutosize from "react-textarea-autosize";
 
-export interface TextFieldProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {
+type TextFieldProps = React.InputHTMLAttributes<HTMLInputElement> & {
   label: string;
   id: string;
   tag: "input" | "textarea";
-}
+};
 
 export const TextField = ({ label, id, tag, placeholder }: TextFieldProps) => {
   const classes = "rounded-lg border border-leap-gray-700 px-3 py-2";
