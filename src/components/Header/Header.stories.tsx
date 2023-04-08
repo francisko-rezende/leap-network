@@ -10,4 +10,16 @@ const meta: Meta<typeof Header> = {
 export default meta;
 type Story = StoryObj<typeof Header>;
 
-export const Default: Story = {};
+export const Page: Story = {
+  args: {
+    intent: "page",
+    children: "page",
+  },
+};
+
+export const Post: Story = {
+  args: {
+    intent: "post",
+    children: "post",
+  },
+};
