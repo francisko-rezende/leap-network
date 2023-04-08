@@ -1,12 +1,23 @@
+import { Dispatch, SetStateAction } from "react";
 import TextareaAutosize from "react-textarea-autosize";
 
-type TextFieldProps = React.InputHTMLAttributes<HTMLInputElement> & {
+type TextFieldProps = {
+  placeholder?: string;
   label: string;
   id: string;
   tag: "input" | "textarea";
+  value: string;
+  setValue: Dispatch<SetStateAction<string>>;
 };
 
-export const TextField = ({ label, id, tag, placeholder }: TextFieldProps) => {
+export const TextField = ({
+  label,
+  id,
+  tag,
+  placeholder,
+  value,
+  setValue,
+}: TextFieldProps) => {
   const classes = "rounded-lg border border-leap-gray-700 px-3 py-2";
   const isTextInput = tag === "input";
 
@@ -20,6 +31,8 @@ export const TextField = ({ label, id, tag, placeholder }: TextFieldProps) => {
           id={id}
           name={id}
           className={classes}
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
         />
       ) : (
         <TextareaAutosize
@@ -28,6 +41,8 @@ export const TextField = ({ label, id, tag, placeholder }: TextFieldProps) => {
           name={id}
           className={classes}
           minRows={3}
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
         ></TextareaAutosize>
       )}
     </div>
