@@ -16,9 +16,13 @@ type IconButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
 export const IconButton = ({
   intent,
   hiddenTextDescription,
+  ...props
 }: IconButtonProps) => {
   return (
-    <button className="p-0.5 transition-opacity hover:opacity-80 active:opacity-95">
+    <button
+      className="p-0.5 transition-opacity hover:opacity-80 active:opacity-95"
+      {...props}
+    >
       {icons[intent]} <span className="sr-only">{hiddenTextDescription}</span>
     </button>
   );

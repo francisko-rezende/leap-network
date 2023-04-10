@@ -4,7 +4,6 @@ import { twMerge } from "tailwind-merge";
 
 const buttonStyles = cva(
   [
-    "ml-auto",
     "w-[120px]",
     "rounded-lg",
     "py-[6px]",

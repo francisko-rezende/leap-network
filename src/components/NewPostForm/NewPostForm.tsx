@@ -37,7 +37,9 @@ export const NewPostForm = () => {
         {fields.map((field) => (
           <TextField key={field.id} {...field} />
         ))}
-        <Button disabled={hasEmptyField}>Create</Button>
+        <Button className="ml-auto" disabled={hasEmptyField}>
+          Create
+        </Button>
       </form>
     </Card>
   );
