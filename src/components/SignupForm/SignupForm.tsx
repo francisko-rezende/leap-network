@@ -3,13 +3,16 @@ import { Title } from "@/components/Title";
 import { Button } from "@/components/Button";
 import { TextField } from "@/components/TextField";
 import { FormEvent, useState } from "react";
+import { useAppDispatch } from "@/hooks/useAppDispatch";
+import { signIn } from "@/redux/slices/userSlice";
 
 export const SignupForm = () => {
   const [username, setUsername] = useState("");
   const isUsernameFieldEmpty = username.length === 0;
+  const dispatch = useAppDispatch();
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    alert(username);
+    dispatch(signIn(username));
   };
 
   return (
