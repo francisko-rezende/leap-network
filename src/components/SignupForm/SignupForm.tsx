@@ -26,7 +26,9 @@ export const SignupForm = () => {
           setValue={setUsername}
           placeholder="John doe"
         />
-        <Button disabled={isUsernameFieldEmpty}>Enter</Button>
+        <Button className="ml-auto" disabled={isUsernameFieldEmpty}>
+          Enter
+        </Button>
       </form>
     </Card>
   );
