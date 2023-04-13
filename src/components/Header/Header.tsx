@@ -5,7 +5,7 @@ import { twMerge } from "tailwind-merge";
 const headerStyles = cva(["bg-leap-blue-400"], {
   variants: {
     intent: {
-      page: ["px-9", "py-7"],
+      page: ["sm:px-9", "px-8", "py-7"],
       post: [
         "-mx-6",
         "flex",
@@ -15,6 +15,7 @@ const headerStyles = cva(["bg-leap-blue-400"], {
         "px-6",
         "py-4",
         "gap-x-4",
+        "min-h-[70px]",
       ],
     },
   },
