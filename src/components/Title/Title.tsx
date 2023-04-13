@@ -1,4 +1,5 @@
 import { VariantProps, cva } from "class-variance-authority";
+import { forwardRef } from "react";
 import { twMerge } from "tailwind-merge";
 
 const titleStyles = cva(["text-lg", "font-bold"], {
@@ -19,18 +20,22 @@ export type TitleProps = React.HTMLAttributes<HTMLHeadingElement> &
     className?: string;
   };
 
-export const Title = ({
-  intent,
-  tag,
-  children,
-  className,
-  ...props
-}: TitleProps) => {
-  const Tag = tag;
+const Title = forwardRef<HTMLHeadingElement, TitleProps>(
+  ({ intent, tag, children, className, ...props }: TitleProps, ref) => {
+    const Tag = tag;
 
-  return (
-    <Tag className={twMerge(titleStyles({ intent }), className)} {...props}>
-      {children}
-    </Tag>
-  );
-};
+    return (
+      <Tag
+        ref={ref}
+        className={twMerge(titleStyles({ intent }), className)}
+        {...props}
+      >
+        {children}
+      </Tag>
+    );
+  }
+);
+
+Title.displayName = "Title";
+
+export { Title };

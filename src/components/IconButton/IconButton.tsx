@@ -1,4 +1,5 @@
 import * as I from "@/ui/icons";
+import { forwardRef } from "react";
 
 const icons = {
   edit: <I.Notepad />,
@@ -13,17 +14,20 @@ type IconButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   hiddenTextDescription: string;
 };
 
-export const IconButton = ({
-  intent,
-  hiddenTextDescription,
-  ...props
-}: IconButtonProps) => {
-  return (
-    <button
-      className="p-0.5 transition-opacity hover:opacity-80 active:opacity-95"
-      {...props}
-    >
-      {icons[intent]} <span className="sr-only">{hiddenTextDescription}</span>
-    </button>
-  );
-};
+const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
+  ({ intent, hiddenTextDescription, ...props }: IconButtonProps, ref) => {
+    return (
+      <button
+        ref={ref}
+        className="p-0.5 transition-opacity hover:opacity-80 active:opacity-95"
+        {...props}
+      >
+        {icons[intent]} <span className="sr-only">{hiddenTextDescription}</span>
+      </button>
+    );
+  }
+);
+
+IconButton.displayName = "IconButton";
+
+export { IconButton };
