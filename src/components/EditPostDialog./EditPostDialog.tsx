@@ -7,9 +7,17 @@ import { DialogButtonsWrapper } from "@/components/DialogButtonsWrapper";
 import { useState } from "react";
 import { TextField } from "../TextField";
 
-export const EditPostDialog = () => {
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
+type EditPostDialog = {
+  originalTitle: string;
+  originalContent: string;
+};
+
+export const EditPostDialog = ({
+  originalTitle,
+  originalContent,
+}: EditPostDialog) => {
+  const [title, setTitle] = useState(originalTitle);
+  const [content, setContent] = useState(originalContent);
   const fields = [
     {
       id: "title",
@@ -29,6 +37,8 @@ export const EditPostDialog = () => {
     },
   ] as const;
 
+  const hasEmptyField = content.length === 0 || title.length === 0;
+
   return (
     <Dialog
       trigger={<IconButton hiddenTextDescription="Edit item" intent="edit" />}
@@ -47,7 +57,9 @@ export const EditPostDialog = () => {
           <RadixDialog.DialogClose asChild>
             <Button intent="secondary">Cancel</Button>
           </RadixDialog.DialogClose>
-          <Button intent="save">Save</Button>
+          <Button disabled={hasEmptyField} intent="save">
+            Save
+          </Button>
         </DialogButtonsWrapper>
       </form>
     </Dialog>
