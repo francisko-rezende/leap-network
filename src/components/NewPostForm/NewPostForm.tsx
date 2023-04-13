@@ -29,9 +29,9 @@ export const NewPostForm = () => {
   const hasEmptyField = !content || !title;
 
   return (
-    <Card tag="section">
+    <Card tag="section" hasBorder>
       <Title tag="h1" intent="dark">
-        Welcome to CodeLeap network!
+        What&rsquo;s on your mind?
       </Title>
       <form className="grid gap-4" onSubmit={(e) => e.preventDefault()}>
         {fields.map((field) => (
