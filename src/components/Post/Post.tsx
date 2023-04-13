@@ -1,9 +1,10 @@
 import { Card } from "../Card";
 import { Header } from "@/components/Header";
 import { Title } from "@/components/Title";
-import { IconButton } from "../IconButton";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
+import { DeletePostDialog } from "../DeletePostDialog";
+import { EditPostDialog } from "../EditPostDialog./EditPostDialog";
 dayjs.extend(relativeTime);
 
 type PostProps = {
@@ -28,8 +29,8 @@ export const Post = ({
           {title}
         </Title>
         <span className="flex max-w-[88px] flex-1 justify-between">
-          <IconButton hiddenTextDescription="Delete post" intent="delete" />
-          <IconButton hiddenTextDescription="Edit post" intent="edit" />
+          <DeletePostDialog />
+          <EditPostDialog originalContent={content} originalTitle={title} />
         </span>
       </Header>
       <div className="grid gap-3">

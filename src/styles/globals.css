@@ -25,3 +25,9 @@
 body {
   background: var(--background);
 }
+
+html,
+body,
+#__next {
+  height: 100%;
+}
