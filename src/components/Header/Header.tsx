@@ -1,4 +1,3 @@
-import { Title } from "@/components/Title";
 import { VariantProps, cva } from "class-variance-authority";
 import { twMerge } from "tailwind-merge";
 
@@ -16,6 +15,7 @@ const headerStyles = cva(["bg-leap-blue-400"], {
         "py-4",
         "gap-x-4",
         "min-h-[70px]",
+        "break-all",
       ],
     },
   },
