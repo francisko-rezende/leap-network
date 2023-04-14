@@ -4,9 +4,8 @@ import { Dialog } from "@/components/Dialog";
 import { Title } from "@/components/Title";
 import { Button } from "@/components/Button";
 import { DialogButtonsWrapper } from "@/components/DialogButtonsWrapper";
-import { FormEvent, useState } from "react";
 import { TextField } from "@/components/TextField";
-import { useEditPost } from "@/hooks/useEditPost";
+import { useEditPostForm } from "@/hooks/useEditPostForm";
 
 type EditPostDialogProps = {
   originalTitle: string;
@@ -19,37 +18,8 @@ export const EditPostDialog = ({
   originalContent,
   id,
 }: EditPostDialogProps) => {
-  const [title, setTitle] = useState(originalTitle);
-  const [content, setContent] = useState(originalContent);
-  const [open, setOpen] = useState(false);
-
-  const editPostMutation = useEditPost({ setOpen });
-
-  const fields = [
-    {
-      id: "title",
-      label: "Title",
-      tag: "input",
-      placeholder: "New post",
-      value: title,
-      setValue: setTitle,
-    },
-    {
-      id: "content",
-      label: "Content",
-      tag: "textarea",
-      placeholder: "New post's content",
-      value: content,
-      setValue: setContent,
-    },
-  ] as const;
-
-  const hasEmptyField = content.length === 0 || title.length === 0;
-
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    editPostMutation.mutate({ id, title, content });
-  };
+  const { fields, handleSubmit, hasEmptyField, isLoading, open, setOpen } =
+    useEditPostForm({ originalContent, originalTitle, id });
 
   return (
     <Dialog
@@ -71,10 +41,7 @@ export const EditPostDialog = ({
           <RadixDialog.DialogClose asChild>
             <Button intent="secondary">Cancel</Button>
           </RadixDialog.DialogClose>
-          <Button
-            disabled={hasEmptyField || editPostMutation.isLoading}
-            intent="save"
-          >
+          <Button disabled={hasEmptyField || isLoading} intent="save">
             Save
           </Button>
         </DialogButtonsWrapper>
