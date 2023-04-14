@@ -6,7 +6,7 @@ export const PostList = () => {
   const { data, hasNextPage, isFetchingNextPage, isLoading, loadMoreRef } =
     usePosts();
 
-  const isFetchingPosts = isLoading && isFetchingNextPage;
+  const isFetchingPosts = isLoading || isFetchingNextPage;
   const hasFetchedAllPosts = !hasNextPage && !isFetchingNextPage && !isLoading;
   const shouldRenderLoadMoreTrigger = hasNextPage || !isFetchingNextPage;
 
