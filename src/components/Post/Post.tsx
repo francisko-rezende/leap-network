@@ -31,7 +31,7 @@ export const Post = ({
         </Title>
         {isAuthor && (
           <span className="flex max-w-[88px] flex-1 justify-between">
-            <DeletePostDialog />
+            <DeletePostDialog id={id} />
             <EditPostDialog
               id={id}
               originalContent={content}
