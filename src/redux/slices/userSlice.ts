@@ -17,10 +17,13 @@ export const userSlice = createSlice({
     signIn: (state, action: PayloadAction<string>) => {
       state.user = action.payload;
     },
+    signOut: (state) => {
+      state.user = "";
+    },
   },
 });
 
-export const { signIn } = userSlice.actions;
+export const { signIn, signOut } = userSlice.actions;
 
 export const selectUser = (state: RootState) => state.user;
 
