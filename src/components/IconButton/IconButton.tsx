@@ -4,6 +4,7 @@ import { forwardRef } from "react";
 const icons = {
   edit: <I.Notepad />,
   delete: <I.Trash />,
+  signOut: <I.SignOut />,
 };
 
 type IconButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
