@@ -5,29 +5,17 @@ import { Title } from "@/components/Title";
 import { Button } from "@/components/Button";
 import { DialogButtonsWrapper } from "@/components/DialogButtonsWrapper";
 import { useState } from "react";
-import { useMutation } from "@tanstack/react-query";
-import { axiosInstance } from "@/lib/axios";
-import { appQueryClient } from "@/lib/tanstackQuery";
+import { Id } from "@/types/id";
+import { useDeletePost } from "@/hooks/useDeletePost";
 
-type DeletePostDialogProps = {
-  id: number;
-};
+type DeletePostDialogProps = Id;
 
 export const DeletePostDialog = ({ id }: DeletePostDialogProps) => {
   const [open, setOpen] = useState(false);
-
-  const mutation = useMutation({
-    mutationFn: ({ id }: DeletePostDialogProps) => {
-      return axiosInstance.delete(`/${id}/`);
-    },
-    onSuccess: () => {
-      appQueryClient.invalidateQueries(["posts"]);
-      setOpen(false);
-    },
-  });
+  const { mutate, isLoading } = useDeletePost({ setOpen });
 
   const handleDeletePost = () => {
-    mutation.mutate({ id });
+    mutate({ id });
   };
 
   return (
@@ -47,11 +35,7 @@ export const DeletePostDialog = ({ id }: DeletePostDialogProps) => {
         <RadixDialog.DialogClose asChild>
           <Button intent="secondary">Cancel</Button>
         </RadixDialog.DialogClose>
-        <Button
-          disabled={mutation.isLoading}
-          intent="delete"
-          onClick={handleDeletePost}
-        >
+        <Button disabled={isLoading} intent="delete" onClick={handleDeletePost}>
           Delete
         </Button>
       </DialogButtonsWrapper>
