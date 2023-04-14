@@ -1,11 +1,11 @@
 import { FormEvent, useState } from "react";
 import { useEditPost } from "@/hooks/useEditPost";
+import { Id } from "@/types/id";
 
 type UseEditPostProps = {
   originalContent: string;
   originalTitle: string;
-  id: number;
-};
+} & Id;
 
 export const useEditPostForm = ({
   originalContent,

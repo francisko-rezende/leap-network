@@ -6,12 +6,12 @@ import { Button } from "@/components/Button";
 import { DialogButtonsWrapper } from "@/components/DialogButtonsWrapper";
 import { TextField } from "@/components/TextField";
 import { useEditPostForm } from "@/hooks/useEditPostForm";
+import { Id } from "@/types/id";
 
 type EditPostDialogProps = {
   originalTitle: string;
   originalContent: string;
-  id: number;
-};
+} & Id;
 
 export const EditPostDialog = ({
   originalTitle,
