@@ -14,6 +14,7 @@ export const SignupForm = () => {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     dispatch(signIn(username));
+    localStorage.setItem("CodeLeaper", username);
   };
 
   return (
