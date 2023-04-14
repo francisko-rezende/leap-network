@@ -2,14 +2,14 @@ import { Header } from "@/components/Header";
 import { NewPostForm } from "@/components/NewPostForm";
 import { PostList } from "@/components/PostList";
 import { Title } from "@/components/Title";
+import { useCheckIfLoggedIn } from "@/hooks/useCheckIfLoggedIn";
 
 export default function Index() {
+  useCheckIfLoggedIn();
+
   return (
     <div className="flex min-h-full flex-col">
-      <Header
-        className="sticky top-0 z-10 mx-auto w-full max-w-[800px]"
-        intent="page"
-      >
+      <Header intent="page">
         <Title intent="light" tag="h1">
           CodeLeap Network
         </Title>
