@@ -5,14 +5,8 @@ import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import { DeletePostDialog } from "../DeletePostDialog";
 import { EditPostDialog } from "../EditPostDialog./EditPostDialog";
+import { PostProps } from "@/types/postProps";
 dayjs.extend(relativeTime);
-
-type PostProps = {
-  title: string;
-  username: string;
-  created_datetime: string;
-  content: string;
-};
 
 export const Post = ({
   title,
