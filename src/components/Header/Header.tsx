@@ -25,7 +25,7 @@ const headerStyles = cva(["bg-leap-blue-400"], {
         "py-4",
         "gap-x-4",
         "min-h-[70px]",
-        "break-all",
+        "break-words",
       ],
     },
   },
