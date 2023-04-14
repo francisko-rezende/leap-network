@@ -8,12 +8,7 @@ import { axiosInstance } from "@/lib/axios";
 import { appQueryClient } from "@/lib/tanstackQuery";
 import { useAppSelector } from "@/hooks/useAppSelector";
 import { RootState } from "@/redux/store/store";
-
-type NewPostData = {
-  username: string;
-  title: string;
-  content: string;
-};
+import { NewPostData } from "@/types/newPostData";
 
 export const NewPostForm = () => {
   const [title, setTitle] = useState("");
