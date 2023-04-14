@@ -1,0 +1,1 @@
+export { LoggedUserArea } from "./LoggedUserArea";
