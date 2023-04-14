@@ -25,8 +25,14 @@ export const usePosts = () => {
     getNextPageParam: (lastPage) => lastPage.next,
   });
 
-  const { data, fetchNextPage, hasNextPage, isLoading, isFetchingNextPage } =
-    postsQuery;
+  const {
+    data,
+    fetchNextPage,
+    hasNextPage,
+    isLoading,
+    isFetchingNextPage,
+    isError,
+  } = postsQuery;
 
   const loadMoreRef = useRef<HTMLDivElement>(null);
 
@@ -51,5 +57,12 @@ export const usePosts = () => {
     return () => observer.disconnect();
   }, [fetchNextPage, isFetchingNextPage]);
 
-  return { data, hasNextPage, isFetchingNextPage, isLoading, loadMoreRef };
+  return {
+    data,
+    hasNextPage,
+    isFetchingNextPage,
+    isLoading,
+    loadMoreRef,
+    isError,
+  };
 };

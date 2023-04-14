@@ -2,10 +2,17 @@ import { Post } from "@/components/Post";
 import React from "react";
 import { usePosts } from "@/hooks/usePosts";
 import { Spinner } from "@/components/Spinner";
+import { Error } from "../Error";
 
 export const PostList = () => {
-  const { data, hasNextPage, isFetchingNextPage, isLoading, loadMoreRef } =
-    usePosts();
+  const {
+    data,
+    hasNextPage,
+    isFetchingNextPage,
+    isLoading,
+    loadMoreRef,
+    isError,
+  } = usePosts();
 
   const isFetchingPosts = isLoading || isFetchingNextPage;
   const hasFetchedAllPosts = !hasNextPage && !isFetchingNextPage && !isLoading;
@@ -28,6 +35,7 @@ export const PostList = () => {
         {isFetchingPosts && <Spinner />}
         {hasFetchedAllPosts && <p>Nothing more to load</p>}
       </div>
+      {isError && <Error />}
       {shouldRenderLoadMoreTrigger && (
         <div
           ref={loadMoreRef}
