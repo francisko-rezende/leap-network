@@ -1,7 +1,3 @@
-Certainly! Here's the README in Markdown format:
-
-markdown
-
 # LeapNetwork
 
 LeapNetwork is a simple web application that allows users to create, read, update, and delete posts. Users can also log in to the application, and their session is persisted in local storage. The posts are shown in an infinite scroll list.
