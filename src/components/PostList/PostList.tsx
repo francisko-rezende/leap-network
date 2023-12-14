@@ -39,7 +39,7 @@ export const PostList = () => {
       {shouldRenderLoadMoreTrigger && (
         <div
           ref={loadMoreRef}
-          className="absolute bottom-40 h-48 w-full bg-transparent"
+          className="pointer-events-none absolute bottom-40 h-48 w-full bg-transparent"
           aria-hidden="true"
         ></div>
       )}
